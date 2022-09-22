@@ -33,7 +33,7 @@ $('#sampai_filter_audit').datepicker({
 
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('#table-list1').DataTable();
     $('#table-list2').DataTable();
     $('#list_table').DataTable();
@@ -53,7 +53,7 @@ function update_op_master_product($id, $kode, $nama, $harga, $qty, $subtotal) {
     $('.modal-body #subtotal_update').val($subtotal);
 }
 
-$('.btn_edit_product').click(function() {
+$('.btn_edit_product').click(function () {
     const form = document.getElementById('update_data_produk');
     form.submit();
 });
@@ -139,7 +139,7 @@ function informasi_data_income(mulai = '', sampai = '') {
             mulai: mulai,
             sampai: sampai,
         },
-        success: function(data) {
+        success: function (data) {
             document.getElementById('pendapatan').innerHTML = data;
         }
     });
@@ -152,7 +152,7 @@ function informasi_data_qty(mulai = '', sampai = '') {
             mulai: mulai,
             sampai: sampai,
         },
-        success: function(data) {
+        success: function (data) {
             document.getElementById('qty').innerHTML = data;
         }
     });
@@ -165,7 +165,7 @@ function informasi_data_pesanan(mulai = '', sampai = '') {
             mulai: mulai,
             sampai: sampai,
         },
-        success: function(data) {
+        success: function (data) {
             document.getElementById('pesanan').innerHTML = data;
         }
     });
@@ -178,7 +178,7 @@ function informasi_data_kasbon(mulai = '', sampai = '') {
             mulai: mulai,
             sampai: sampai,
         },
-        success: function(data) {
+        success: function (data) {
 
             document.getElementById('kasbon').innerHTML = data;
         }
@@ -192,7 +192,7 @@ function informasi_data_list_barang(mulai = '', sampai = '') {
             mulai: mulai,
             sampai: sampai,
         },
-        success: function(data) {
+        success: function (data) {
             $("#informasi_list").html(data);
         }
     });
@@ -205,7 +205,7 @@ function informasi_order_sales(mulai = '', sampai = '') {
             mulai: mulai,
             sampai: sampai,
         },
-        success: function(data) {
+        success: function (data) {
             $("#informasi_order_sales").html(data);
         }
     });
@@ -218,7 +218,7 @@ function informasi_cashbon_employe(mulai = '', sampai = '') {
             mulai: mulai,
             sampai: sampai,
         },
-        success: function(data) {
+        success: function (data) {
             $("#informasi_cashbon_income").html(data);
         }
     });
@@ -231,7 +231,7 @@ function informasi_list_free(mulai = '', sampai = '') {
             mulai: mulai,
             sampai: sampai,
         },
-        success: function(data) {
+        success: function (data) {
             $("#informasi_list_free").html(data);
         }
     });
@@ -283,8 +283,8 @@ function deleteRowRequest(tableID) {
 // Autocomplete
 
 // Pilih Barang
-$(document).ready(function() {
-    $("#info_brg").on('click', '.btn-pilih', function() {
+$(document).ready(function () {
+    $("#info_brg").on('click', '.btn-pilih', function () {
         var currentRow = $(this).closest("tr");
         var kode_pembelian = currentRow.find("td:eq(1)").html(); // get current row 1st table cell TD value
         var item = currentRow.find("td:eq(2)").html(); // get current row 1st table cell TD value
@@ -395,7 +395,7 @@ function simpan_surat_jalan() {
                             qty: qty,
                             subtotal_item: subtotal_item,
                         },
-                        success: function(data) {}
+                        success: function (data) { }
                     });
                 }
 
@@ -409,7 +409,7 @@ function simpan_surat_jalan() {
                         driver: supir,
                         no_driver: kendaraan,
                     },
-                    success: function(data) {
+                    success: function (data) {
                         swal.fire({
                             icon: 'success',
                             title: 'Good Luck !',
@@ -457,7 +457,7 @@ function suratjalanfilter() {
                 mulai: mulai,
                 sampai: sampai,
             },
-            success: function(data) {
+            success: function (data) {
                 $("#table-list3").html(data);
             }
         });

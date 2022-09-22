@@ -39,6 +39,7 @@ $routes->get('/auth/logout', 'AuthController::logout');
 $routes->get('/apiproduct/display_product/(:num)', 'ApiProduct::display_product/$1');
 $routes->get('/apiproduct/get_karyawan/(:any)', 'ApiProduct::get_karyawan/$1');
 $routes->post('/apiproduct/create', 'ApiProduct::create');
+$routes->post('/apiproduct/create_pesanan', 'ApiProduct::create_order_pesanan');
 $routes->group('', ['filter' => 'AuthCheck'], function ($routes) {
     $routes->get('/', 'Home::index');
     $routes->get('/sdm/master', 'SDM\MasterSDM::index');
