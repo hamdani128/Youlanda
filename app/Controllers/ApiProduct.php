@@ -130,6 +130,60 @@ class ApiProduct extends ResourceController{
         return $this->respondCreated($response);
     }
 
+    public function create_cashbon()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $db = Database::connect();
+        $unit_id = $this->request->getVar('unit_id');
+        $date = $this->request->getVar('date');
+        $code_transaction = $this->request->getVar('code_transaction');
+        $code_product = $this->request->getVar('code_product');
+        $item = $this->request->getVar('item');
+        $price = $this->request->getVar('price');
+        $qty = $this->request->getVar('qty');
+        $subtotal = $this->request->getVar('subtotal');
+        $potongan = $this->request->getVar('potongan');
+        $employe_id = $this->request->getVar('employe_id');
+        $employe = $this->request->getVar('employe');
+        $created_sales =  $this->request->getVar('created_sales');
+        $created_at = $this->request->getVar('created_at');
+
+        $data = [
+            'unit_id' => $unit_id,
+            'date' => $date,
+            'code_transaction' => $code_transaction,
+            'code_product' => $code_product,
+            'item' => $item,
+            'price' => $price,
+            'qty' => $qty,
+            'subtotal' => $subtotal,
+            'potongan' => $potongan,
+            'employe_id' => $employe_id,
+            'employe' => $employe,
+            'created_sales' => $created_sales,
+            'created_at' => $created_at
+        ];
+        $query = $db->table('op_cashbon_income')->insert($data);
+        if($query){
+            $response = [
+                'status' => 201,
+                'error' => null,
+                'message' => [
+                    'success' => 'Data berhasil ditambahkan'
+                ]
+            ];
+        }else{
+            $response = [
+                'status' => 500,
+                'error' => null,
+                'message' => [
+                    'error' => 'Data gagal ditambahkan'
+                ]
+            ];
+        }
+        return $this->respondCreated($response);
+    }
+
     public function get_karyawan($karyawan){
         $db = Database::connect();
         $SQL = "SELECT id,nama, bagian, jabatan, departemen, unit FROM sdm_master WHERE nama LIKE '%" . $karyawan . "%'";
